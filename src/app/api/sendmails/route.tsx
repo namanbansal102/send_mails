@@ -23,7 +23,9 @@ export async function POST(req:Request,res:Response){
     let date=getFormattedDate();
     let html=``;
     if (type=="gatepass") {
-        html=`<div style="background-color:#e5e9ec">
+        html=`
+        <span style="color: #FFF; display: none; font-size: 8px;"><%= rand(36**20).to_s(36) %></span>
+        <div style="background-color:#e5e9ec">
     <table width="100%" cellspacing="0" cellpadding="0" border="0">
     <tbody><tr>
     <td>
@@ -131,7 +133,9 @@ export async function POST(req:Request,res:Response){
     </div>`
     }
     else if(type=="return" || type=="going"){
-        html=`<div style="background-color:#e5e9ec">
+        html=`
+        
+        <div style="background-color:#e5e9ec">
     <table width="100%" cellspacing="0" cellpadding="0" border="0">
     <tbody><tr>
     <td>
