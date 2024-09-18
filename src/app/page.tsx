@@ -3,11 +3,11 @@ import Image from "next/image";
 import { useState } from "react";
 export default function Home() {
   
-  const [pass, setpass] = useState()
+  const [pass, setpass] = useState('')
   const [val, setval] = useState()
   const [time, setTime] = useState()
   const handleClick=async ()=>{
-    await fetch("http://127.0.0.1:3000/api/sendmails",
+    const response= await fetch("http://localhost:3000/api/sendmails",
       {
           headers: {
             'Accept': 'application/json',
@@ -16,11 +16,12 @@ export default function Home() {
           method: "POST",
           body: JSON.stringify({"pass": pass, "time": time,"type":val})
       })
-      .then(function(res){ 
-        console.log(res)
-
-       })
-      .catch(function(res){ console.log(res) })
+      const data=await response.json();
+      console.log(data);
+      alert(`
+        ${data.success} and ${data.message}`)
+      
+    
   }
   return (
    <>
