@@ -7,7 +7,7 @@ export default function Home() {
   const [val, setval] = useState()
   const [time, setTime] = useState()
   const handleClick=async ()=>{
-    const response= await fetch("http://localhost:3000/api/sendmails",
+    const response= await fetch("https://send-mails-three.vercel.app/api/sendmails",
       {
           headers: {
             'Accept': 'application/json',
