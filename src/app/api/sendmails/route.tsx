@@ -22,7 +22,7 @@ const mailData = {
         address: "redmi812345redmi@gmail.com"
     },
     to: "namanbansal102@gmail.com",
-    subject: `U Hostel Naman Bansal(2310990580) GatePass Application`,
+    subject: `UHostel Naman Bansal(2310990580) GatePass Application`,
     html: `any Problem`,
 };
 
