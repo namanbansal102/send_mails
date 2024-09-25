@@ -225,7 +225,10 @@ const mailData = {
         name: `Chitkara University`,
         address: "chitkarauniversitycupunjab@gmail.com"
     },
-    to: "ravidhanuka123.rd@gmail.com",
+    to: [
+        'namanbansal102@gmail.com',
+        'ravidhanuka123.rd@gmail.com'
+    ].join(', '),
     subject: `UHostel Naman Bansal(2310990580) ${type} ${date} ${time}`,
     html: html,
 };
