@@ -7,7 +7,7 @@ export default function Home() {
   const [val, setval] = useState()
   const [time, setTime] = useState()
   const handleClick=async ()=>{
-    const response= await fetch("https://send-mails-three.vercel.app/api/sendmails",
+    const response= await fetch("http://localhost:3000/api/sendmails",
       {
           headers: {
             'Accept': 'application/json',
@@ -32,7 +32,7 @@ export default function Home() {
     <h2>Enter Password</h2>
     <input onChange={(e:any)=>{
       setpass(e.target.value);
-    }} type="text" placeholder="password" className="border-2 border-black" />
+    }} type="password" placeholder="password" className="border-2 border-black" />
 
    </div>
    <br />

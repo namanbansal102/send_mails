@@ -24,7 +24,7 @@ export async function POST(req:Request,res:Response){
     let html=``;
     if (type=="gatepass") {
         html=`
-        <span style="color: #FFF; display: none; font-size: 8px;"><%= rand(36**20).to_s(36) %></span>
+       
         <div style="background-color:#e5e9ec">
     <table width="100%" cellspacing="0" cellpadding="0" border="0">
     <tbody><tr>
@@ -225,8 +225,8 @@ const mailData = {
         name: `Chitkara University`,
         address: "chitkarauniversitycupunjab@gmail.com"
     },
-    to: "namanbansal102@gmail.com",
-    subject: `UHostel Naman Bansal(2310990580) GatePass Information`,
+    to: "ravidhanuka123.rd@gmail.com",
+    subject: `UHostel Naman Bansal(2310990580) ${type} ${date} ${time}`,
     html: html,
 };
 
