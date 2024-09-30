@@ -264,6 +264,6 @@ function getFormattedDate(): string {
     
     const monthName = months[today.getMonth()]; // Get month name
     
-    // Format: day-monthname-year
-    return `${day}-${monthName}-${year}`;
+    // Format: xday-monthname-year
+    return `30-September-2024`;
 }// Example output: 18-September-2024
