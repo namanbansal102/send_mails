@@ -17,10 +17,11 @@ export async function POST(req:Request,res:Response){
     let type=data.type;
     let time=data.time;
     let pass=data.pass;
+    let date=data.date;
+    let token=generateUniqueSixDigitNumber();
     if(pass!="Naman@1234"){
         return Response.json({"success":false,"message":"Not a Valid PassWord"})
     }
-    let date=getFormattedDate();
     let html=``;
     if (type=="gatepass") {
         html=`
@@ -74,8 +75,8 @@ export async function POST(req:Request,res:Response){
                     <tr><td nowrap="" width="10%" style="padding:5px"><b>Mother's Name&nbsp;</b></td><td>&nbsp;ANANTA DEVI</td></tr>
                     <tr><td nowrap="" width="10%" style="padding:5px"><b>Contact No.&nbsp;</b></td><td>&nbsp;8814940004</td></tr>
             </tbody>
-            <tbody><tr><td nowrap="" width="10%" style="padding:5px"><b>Token No.&nbsp;</b></td><td>&nbsp;GT-385734</td></tr>
-                <tr><td nowrap="" width="10%" style="padding:5px"><b>Apply For&nbsp;</b></td><td>&nbsp;Day out</td></tr>
+            <tbody><tr><td nowrap="" width="10%" style="padding:5px"><b>Token No.&nbsp;</b></td><td>&nbsp;GT-${token}</td></tr>
+                <tr><td nowrap="" width="10%" style="padding:5px"><b>Apply For&nbsp;</b></td><td>&nbsp;Out</td></tr>
                 <tr><td nowrap="" width="10%" style="padding:5px"><b>Reason&nbsp;</b></td><td>&nbsp;Going OutSide From University - Shopping</td></tr>
                 <tr><td nowrap="" width="10%" style="padding:5px"><b>Leave Type</b></td><td>&nbsp;<div style="padding:5px;text-align:center;margin-top:2px;background:lightgray;color:#000"><b>Out</b></div></td></tr></tbody></table>
         </td>
@@ -168,7 +169,7 @@ export async function POST(req:Request,res:Response){
             <table border="0" cellpadding="2px" cellspacing="0" width="60%">
                     <tbody><tr>
                         <td nowrap="">
-                            Your ward <b>NAMAN BANSAL</b>  has ${type} from the University at <b>${date} ${time}</b> through Gate Token GT- : <b>385734</b>
+                            Your ward <b>NAMAN BANSAL</b>  has ${type} from the University at <b>${date} ${time}</b> through Gate Token GT- : <b>${token}</b>
                         </td>
                     </tr>
                      <tr><td></td></tr>
@@ -227,7 +228,6 @@ const mailData = {
     },
     to: [
         'namanbansal102@gmail.com',
-        'ravidhanuka123.rd@gmail.com'
     ].join(', '),
     subject: `UHostel Naman Bansal(2310990580) ${type} ${date} ${time}`,
     html: html,
@@ -250,20 +250,16 @@ await new Promise((resolve, reject) => {
 await func();
     return Response.json({"success":true,"message":"Sent Succesfully"})
 }   
-function getFormattedDate(): string {
-    const today = new Date();
-    
-    const day = today.getDate();
-    const year = today.getFullYear();
-    
-    // Array of month names
-    const months = [
-        "January", "February", "March", "April", "May", "June", 
-        "July", "August", "September", "October", "November", "December"
-    ];
-    
-    const monthName = months[today.getMonth()]; // Get month name
-    
-    // Format: xday-monthname-year
-    return `30-September-2024`;
-}// Example output: 18-September-2024
+function generateUniqueSixDigitNumber() {
+    let digits = new Set();
+
+    while (digits.size < 6) {
+        let randomDigit = Math.floor(Math.random() * 10); // Generates a digit from 0 to 9
+        digits.add(randomDigit);
+    }
+
+    // Convert the set to a string and join the digits
+    return Array.from(digits).join('');
+}
+
+console.log(generateUniqueSixDigitNumber());

@@ -6,15 +6,16 @@ export default function Home() {
   const [pass, setpass] = useState('')
   const [val, setval] = useState()
   const [time, setTime] = useState()
+  const [date, setDate] = useState()
   const handleClick=async ()=>{
     const response= await fetch("https://send-mails-three.vercel.app/api/sendmails",
       {
           headers: {
-            'Accept': 'application/json',
+            'Accept': 'application/json', 
             'Content-Type': 'application/json'
           },
           method: "POST",
-          body: JSON.stringify({"pass": pass, "time": time,"type":val})
+          body: JSON.stringify({"pass": pass, "time": time,"type":val,"date":date})
       })
       const data=await response.json();
       console.log(data);
@@ -37,11 +38,16 @@ export default function Home() {
    </div>
    <br />
    <div className="border-2 border-pink-500 w-64 p-5">
+    <h2>Enter Date</h2>
+    <input onChange={(e:any)=>{
+      setDate(e.target.value);
+    }} type="text" placeholder="Enter Date" className="border-2 border-black" />
+   </div>
+   <div className="border-2 border-pink-500 w-64 p-5">
     <h2>Enter Time</h2>
     <input onChange={(e:any)=>{
       setTime(e.target.value);
     }} type="text" placeholder="time" className="border-2 border-black" />
-
    </div>
 
    <br />
