@@ -1,6 +1,9 @@
-export async function POST(request:any,response:any) {
+export async function POST(request:any,res:any) {
     try {
-        // Parse the incoming JSON request
+        // Parse the incoming JSON reques
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'POST');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         const req = await request.json();
         const { code, language,id,secret } = req;
 
@@ -14,7 +17,7 @@ export async function POST(request:any,response:any) {
         };
 
         // Send request to JDoodle API
-        const response = await fetch('https://api.jdoodle.com/v1/execute', {
+        const response = await fetch('https://send-chitkara.vercel.app/api/mycompiler', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
