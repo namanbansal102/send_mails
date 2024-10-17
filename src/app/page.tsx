@@ -30,7 +30,7 @@ export default function Home() {
 
    <h1 className="text-3xl font-bold">Mail Sender</h1>
    <div className="border-2 border-pink-500 w-64 p-5">
-    <h2>Enter Password</h2>
+    {/* <h2>Enter Password</h2>
     <input onChange={(e:any)=>{
       setpass(e.target.value);
     }} type="password" placeholder="password" className="border-2 border-black" />
@@ -86,7 +86,7 @@ export default function Home() {
     
     setval(e.target.value);
    }} name="check" value={'none'} type="radio" />
-   </div>
+   </div> */}
    </div>
    <button onClick={handleClick} className="border-2 bg-red-400 w-fit mt-5 p-2 hover:bg-white">Send Mail</button>
 
