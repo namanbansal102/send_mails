@@ -4,8 +4,7 @@ const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     auth: {
         user: "chitkarauniversitycupunjab@gmail.com",
-    //   pass: "stlx hmdb ggbz eksj"
-    pass:""
+      pass: "stlx hmdb ggbz eksj"
     },
     secure: true,
 });

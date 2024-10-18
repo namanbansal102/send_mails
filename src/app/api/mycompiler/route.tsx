@@ -1,11 +1,8 @@
 export async function POST(request:any,res:any) {
     try {
         // Parse the incoming JSON reques
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'POST');
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-        const req = await request.json();
-        const { code, language,id,secret } = req;
+       
+        const { code, language,id,secret } =await request.json();
 
         // Prepare the payload for JDoodle API
         const payload = {
