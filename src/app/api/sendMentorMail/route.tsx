@@ -18,6 +18,8 @@ export async function POST(req:Request,res:Response){
     let mentorName=data.mentorName;
     let timeSlot=data.timeSlot;
     let specailization=data.special;
+    let userName="user";
+    userName=data.userName;
     let html=``;
     if(type=="user"){
         html=`<!DOCTYPE html>
@@ -32,7 +34,7 @@ export async function POST(req:Request,res:Response){
         <div style="text-align: center; color: #ff6600; font-size: 28px; margin-bottom: 20px;">Congratulations, Your Session Has Been Confirmed!</div>
         <div style="text-align: center; font-size: 20px; margin-bottom: 30px; color: #333;">Mentorship Session Details</div>
         <div style="font-size: 16px; color: #555; line-height: 1.6;">
-            Dear <span style="font-weight: bold; color: #333;">[Recipient's Name]</span>,
+            Dear <span style="font-weight: bold; color: #333;">${userName}</span>,
             <br><br>
             We are pleased to inform you that your booking for a mentorship session has been successfully confirmed. Here are the details of your upcoming session:
             <br><br>
@@ -67,7 +69,7 @@ export async function POST(req:Request,res:Response){
 </body>
 </html>`
     }
-    if (type=="mentor") {
+    else if (type=="mentor") {
         html=`<!DOCTYPE html>
 <html lang="en">
 <head>
