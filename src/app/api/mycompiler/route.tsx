@@ -14,7 +14,7 @@ export async function POST(request:any,res:any) {
         };
 
         // Send request to JDoodle API
-        const response = await fetch('https://send-chitkara.vercel.app/api/mycompiler', {
+        const response = await fetch('https://api.jdoodle.com/v1/execute', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
