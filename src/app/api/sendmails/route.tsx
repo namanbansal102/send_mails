@@ -228,7 +228,7 @@ const mailData = {
     },
     to: [
         'namanbansal102@gmail.com',
-        'ravidhanuka123.rd@gmail.com'
+       // 'ravidhanuka123.rd@gmail.com'
     ].join(', '),
     subject: `UHostel Naman Bansal(2310990580) ${type} ${date} ${time}`,
     html: html,
